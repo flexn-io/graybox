@@ -1,0 +1,72 @@
+{
+    "name": "@flexn-io/graybox-monorepo",
+    "private": true,
+    "scripts": {
+        "bootstrap": "(rnv unlink|| true) && npx lerna bootstrap && yarn build",
+        "bootstrap-clean": "rm -rf ./node_modules; npx lerna clean --yes && yarn bootstrap",
+        "build": "lerna run build",
+        "watch-alt": "npx lerna run compile & npx lerna watch -- lerna run compile",
+        "watch": "npx lerna exec yarn watch --parallel",
+        "compile": "npx lerna run compile",
+        "lint": "npx eslint ./packages",
+        "test": "npx jest --coverage",
+        "test-watch": "npx jest --watch",
+        "sanity": "yarn compile && yarn lint && yarn test",
+        "prettier-write-all": "npx prettier '**/*.{js,jsx,ts,tsx,mjs,cjs,json,md}' --write --config .prettierrc.js",
+        "prettier-write-json": "npx prettier '**/{package.json,renative.plugins.json,renative.json}' --write --config .prettierrc.js",
+        "lint:report": "eslint --output-file=eslint-report.json --format=json . --ext .js,.jsx,.ts,.tsx",
+        "docs": "cd docs && yarn && yarn start",
+        "docs-build": "cd docs && yarn && yarn build",
+        "docs-deploy-preview": "cd docs && yarn && yarn build && yarn deploy-preview",
+        "docs-deploy-prod": "cd docs && yarn && yarn build && yarn deploy-prod",
+        "gitCommit": "npx rnv hooks run -x gitCommit --only",
+        "gitTag": "npx rnv hooks run -x gitTag --only",
+        "update-versions": "npx rnv hooks run -x updateVersions --only",
+        "release": "lerna version --force-publish --no-git-tag-version --no-push && yarn update-versions && yarn gitCommit && lerna publish from-package && yarn gitTag",
+        "release-alpha": "lerna version --force-publish --no-git-tag-version --no-push && yarn update-versions && yarn gitCommit && lerna publish from-package --dist-tag alpha --yes && yarn gitTag",
+        "release-feat": "lerna version --force-publish --no-git-tag-version --no-push && yarn update-versions && yarn gitCommit && lerna publish from-package --dist-tag feat --yes && yarn gitTag",
+        "release-dry": "lerna version --force-publish --no-git-tag-version --no-push && npx rnv hooks run -x updateVersions",
+        "deploy-packages": "npm run deploy-all && npx lerna publish from-package --yes && git push origin HEAD"
+    },
+    "devDependencies": {
+        "@flexn/eslint-config": "0.1.5",
+        "@flexn/prettier-config": "0.1.4",
+        "@flexn/typescript": "0.3.0",
+        "@flexn/build-hooks": "0.30.0",
+        "@types/jest": "~27.0.2",
+        "@types/lodash-es": "~4.17.5",
+        "@types/lodash.debounce": "~4.0.6",
+        "@types/lodash.throttle": "~4.1.7",
+        "@types/node": "~16.11.7",
+        "@types/react-dom": "~18.2.4",
+        "@types/react-native": "~0.67.2",
+        "eslint-config-prettier": "8.8.0",
+        "husky": "4.2.5",
+        "jest": "27.3.1",
+        "lerna": "6.6.2",
+        "rnv": "0.37.0-canary.11",
+        "typescript": "4.9.5",
+        "prettier": "2.3.1",
+        "eslint": "8.40.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn sanity"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "eslint"
+        ],
+        "**/*.ts": "tsc-files --noEmit"
+    },
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ]
+    },
+    "resolutions": {
+        "@types/react": "18.2.6",
+        "tslib": "2.5.2"
+    }
+}
