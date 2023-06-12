@@ -30,6 +30,13 @@ abstract class AbstractRunner {
 
     abstract pressButtonSelect(n: number): void;
 
+    // visual regression testing
+    abstract expectToMatchElementById(selector: string, tag: string, acceptableMismatch: number): void;
+
+    abstract expectToMatchElementByText(selector: string, tag: string, acceptableMismatch: number): void;
+
+    abstract expectToMatchScreen(tag: string, acceptableMismatch: number): void;
+
     // expect toBeExisting
     expectToBeExistingById = async (selector: string) => {
         const element = await this.getElementById(selector);
@@ -72,6 +79,22 @@ abstract class AbstractRunner {
         const element = await this.getElementByText(selector);
         if (element) {
             await expect(element).toBeClickable();
+        }
+    };
+
+    // expect toHaveText
+    expectToHaveTextById = async (selector: string, text: string) => {
+        const element = await this.getElementById(selector);
+        if (element) {
+            await expect(element).toHaveText(text);
+        }
+    };
+
+    // expect toHaveValue
+    expectToHaveValueById = async (selector: string, value: string) => {
+        const element = await this.getElementById(selector);
+        if (element) {
+            await expect(element).toHaveValue(value);
         }
     };
 
