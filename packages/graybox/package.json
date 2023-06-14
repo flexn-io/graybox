@@ -1,6 +1,6 @@
 {
     "name": "@flexn/graybox",
-    "version": "0.21.2-alpha.15",
+    "version": "0.21.2-alpha.16",
     "description": "Flexn Graybox Tester",
     "main": "lib/index.js",
     "scripts": {
@@ -15,7 +15,7 @@
     "repository": {
         "directory": "packages/graybox",
         "type": "git",
-        "url": "git+https://github.com/flexn-io/create.git"
+        "url": "git+https://github.com/flexn-io/graybox.git"
     },
     "publishConfig": {
         "access": "public"
@@ -24,9 +24,9 @@
     "author": "Flexn BV",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/flexn-io/create/issues"
+        "url": "https://github.com/flexn-io/graybox/issues"
     },
-    "homepage": "https://github.com/flexn-io/create#readme",
+    "homepage": "https://github.com/flexn-io/graybox#readme",
     "dependencies": {
         "@wdio/allure-reporter": "7.19.5",
         "@wdio/appium-service": "7.19.5",
@@ -38,6 +38,9 @@
         "allure-commandline": "2.17.2",
         "appium": "1.22.3",
         "chromedriver": "87.0.7",
-        "wdio-chromedriver-service": "7.2.2"
-    }
+        "wdio-chromedriver-service": "7.2.2",
+        "wdio-image-comparison-service": "5.0.3",
+        "wdio-native-app-compare-service": "2.1.0"
+    },
+    "gitHead": "589bf39903ec751b50788e579e452e7a292e89cc"
 }
