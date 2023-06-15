@@ -30,6 +30,7 @@
     },
     "devDependencies": {
         "@flexn/eslint-config": "0.1.5",
+        "eslint-config-react-app": "^7.0.0",
         "@flexn/prettier-config": "0.1.4",
         "@flexn/typescript": "0.3.0",
         "@flexn/build-hooks": "0.30.0",
