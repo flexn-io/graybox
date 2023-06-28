@@ -1,6 +1,6 @@
 {
     "name": "@flexn/graybox",
-    "version": "0.21.0",
+    "version": "0.21.1",
     "description": "Flexn Graybox Tester",
     "main": "lib/index.js",
     "scripts": {
@@ -37,7 +37,7 @@
         "@wdio/spec-reporter": "7.19.5",
         "allure-commandline": "2.17.2",
         "appium": "1.22.3",
-        "chromedriver": "87.0.7",
+        "chromedriver": "102.0.0",
         "wdio-chromedriver-service": "7.2.2",
         "wdio-image-comparison-service": "5.0.3",
         "wdio-native-app-compare-service": "2.1.0"
