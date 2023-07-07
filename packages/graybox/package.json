@@ -7,7 +7,8 @@
         "build": "yarn clean && yarn compile",
         "clean": "rm -rf ./lib && rm -rf tsconfig.tsbuildinfo",
         "compile": "tsc -b tsconfig.json",
-        "watch": "tsc --watch --preserveWatchOutput"
+        "watch": "tsc --watch --preserveWatchOutput",
+        "appium": "APPIUM_HOME=./ appium"
     },
     "files": [
         "lib"
@@ -36,8 +37,8 @@
         "@wdio/selenium-standalone-service": "7.19.5",
         "@wdio/spec-reporter": "7.19.5",
         "allure-commandline": "2.17.2",
-        "appium": "2.0.0-rc.3",
-        "appium-xcuitest-driver": "4.32.9",
+        "appium": "2.0.0",
+        "appium-xcuitest-driver": "4.32.11",
         "chromedriver": "87.0.7",
         "wdio-chromedriver-service": "7.2.2",
         "wdio-image-comparison-service": "5.0.3",
