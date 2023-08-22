@@ -7,8 +7,7 @@
         "build": "yarn clean && yarn compile",
         "clean": "rm -rf ./lib && rm -rf tsconfig.tsbuildinfo",
         "compile": "tsc -b tsconfig.json",
-        "watch": "tsc --watch --preserveWatchOutput",
-        "appium": "APPIUM_HOME=./ appium"
+        "watch": "tsc --watch --preserveWatchOutput"
     },
     "files": [
         "lib"
