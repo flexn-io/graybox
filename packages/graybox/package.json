@@ -1,6 +1,6 @@
 {
     "name": "@flexn/graybox",
-    "version": "0.21.2-feat.4",
+    "version": "0.21.2-feat.6",
     "description": "Flexn Graybox Tester",
     "main": "lib/index.js",
     "scripts": {
