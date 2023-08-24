@@ -11,7 +11,7 @@ E2E testing package using WebdriverIO. Native apps use [Appium Service](https://
 3. Customize `capabilities` according to your platform scope (in the example are all supported platforms by Graybox), simulator environment and testable application.
 4. Customize `services` according to your platform scope.
 5. Customize any other needed properties like `baseUrl` and `specs`.
-6. If Graybox is added to monorepo package then lines below must be added to monorepo root `package.json`.
+6. If Graybox is added to yarn workspaces monorepo then lines below must be added to monorepo root `package.json`.
 
 ```json
 "nohoist": [
@@ -604,7 +604,7 @@ udid: '<Device udid>';
 ## Test executing
 
 1. Make sure application is built (applies for iOS, tvOS, Android, AndroidTV, macOS) or hosted to server (applies for Web).
-2. Run in cli `APPIUM_HOME=./ PLATFORM=<platform> ENGINE=<engine> npx wdio wdio.conf.js`. `<platform>` must be replaced by `ios`, `tvos`, `android`, `androidtv`, `macos` or `web`. `ENGINE` environment variable is only needed for macOS and `<engine>` must be replaced by `macos` or `electron` depending on what framework macOS application is built. `APPIUM_HOME=./` is not necessary when project is not monorepo.
+2. Run in cli `APPIUM_HOME=./ PLATFORM=<platform> ENGINE=<engine> npx wdio wdio.conf.js`. `<platform>` must be replaced by `ios`, `tvos`, `android`, `androidtv`, `macos` or `web`. `ENGINE` environment variable is only needed for macOS and `<engine>` must be replaced by `macos` or `electron` depending on what framework macOS application is built. `APPIUM_HOME=./` is only needed for platforms which use Appium Service and it is not necessary when project is not monorepo.
 
 ## Prerequisites executing tests on macOS app
 
