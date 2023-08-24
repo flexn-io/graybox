@@ -1,6 +1,6 @@
 {
     "name": "@flexn/graybox",
-    "version": "0.21.1",
+    "version": "0.21.2-feat.8",
     "description": "Flexn Graybox Tester",
     "main": "lib/index.js",
     "scripts": {
@@ -36,7 +36,10 @@
         "@wdio/selenium-standalone-service": "7.19.5",
         "@wdio/spec-reporter": "7.19.5",
         "allure-commandline": "2.17.2",
-        "appium": "1.22.3",
+        "appium": "2.0.0",
+        "appium-xcuitest-driver": "4.32.11",
+        "appium-uiautomator2-driver": "2.29.5",
+        "appium-mac2-driver": "1.7.2",
         "chromedriver": "102.0.0",
         "wdio-chromedriver-service": "7.2.2",
         "wdio-image-comparison-service": "5.0.3",

@@ -11,7 +11,17 @@ E2E testing package using WebdriverIO. Native apps use [Appium Service](https://
 3. Customize `capabilities` according to your platform scope (in the example are all supported platforms by Graybox), simulator environment and testable application.
 4. Customize `services` according to your platform scope.
 5. Customize any other needed properties like `baseUrl` and `specs`.
-6. Set test ID's in the application's source code (if needed). Android and AndroidTV get test ID from `accessibilityLabel` property, also `accessible` needs to be added to the element. All other platforms supported by Graybox get test ID from `TestID` property. Example is below.
+6. If Graybox is added to yarn workspaces monorepo then lines below must be added to monorepo root `package.json`.
+
+```json
+"nohoist": [
+    "**/@flexn/graybox",
+    "**/appium-*",
+    "**/@wdio/*"
+]
+```
+
+7. Set test ID's in the application's source code (if needed). Android and AndroidTV get test ID from `accessibilityLabel` property, also `accessible` needs to be added to the element. All other platforms supported by Graybox get test ID from `TestID` property. Example is below.
 
 ```javascript
 <TouchableOpacity
@@ -26,13 +36,13 @@ E2E testing package using WebdriverIO. Native apps use [Appium Service](https://
 
 Alternatively method can be created and imported which returns specific test ID depending on platform. 
 
-7. Create test specs file and import Graybox package.
+8. Create test specs file and import Graybox package.
 
 ```javascript
 const FlexnRunner = require('@flexn/graybox').default;
 ```
 
-8. Write your tests using FlexnRunner. How to execute written tests look at [Test executing](#test-executing).
+9. Write your tests using FlexnRunner. How to execute written tests look at [Test executing](#test-executing).
 
 ```javascript
 // wdio.conf.js
@@ -50,53 +60,63 @@ const capabilities = {
     ios: [
         {
             platformName: 'iOS',
-            deviceName: 'iPhone 11',
-            platformVersion: '13.5',
-            automationName: 'XCUITest',
-            bundleId: 'my.bundleId',
-            app: 'path/to/my/app',
+            'appium:options': {
+                deviceName: 'iPhone 11',
+                platformVersion: '13.5',
+                automationName: 'XCUITest',
+                bundleId: 'my.bundleId',
+                app: 'path/to/my/app',
+            },
         },
     ],
     tvos: [
         {
             platformName: 'tvOS',
-            deviceName: 'Apple TV',
-            platformVersion: '14.4',
-            automationName: 'XCUITest',
-            bundleId: 'my.bundleId',
-            app: 'path/to/my/app',
+            'appium:options': {
+                deviceName: 'Apple TV',
+                platformVersion: '14.4',
+                automationName: 'XCUITest',
+                bundleId: 'my.bundleId',
+                app: 'path/to/my/app',
+            },
         },
     ],
     android: [
         {
             platformName: 'Android',
-            avd: 'Pixel_4_API_29',
-            deviceName: 'Pixel_4_API_29',
-            platformVersion: '10',
-            automationName: 'UiAutomator2',
-            appPackage: 'my.appPackage',
-            appActivity: 'my.appActivity',
-            app: 'path/to/my/app',
+            'appium:options': {
+                avd: 'Pixel_4_API_29',
+                deviceName: 'Pixel_4_API_29',
+                platformVersion: '10',
+                automationName: 'UiAutomator2',
+                appPackage: 'my.appPackage',
+                appActivity: 'my.appActivity',
+                app: 'path/to/my/app',
+            },
         },
     ],
     androidtv: [
         {
             platformName: 'Android',
-            avd: 'Android_TV_1080p_API_29',
-            deviceName: 'Android_TV_1080p_API_29',
-            platformVersion: '10',
-            automationName: 'UiAutomator2',
-            appPackage: 'my.appPackage',
-            appActivity: 'my.appActivity',
-            app: 'path/to/my/app',
+            'appium:options': {
+                avd: 'Android_TV_1080p_API_29',
+                deviceName: 'Android_TV_1080p_API_29',
+                platformVersion: '10',
+                automationName: 'UiAutomator2',
+                appPackage: 'my.appPackage',
+                appActivity: 'my.appActivity',
+                app: 'path/to/my/app',
+            },
         },
     ],
     macos: [
         {
             platformName: 'Mac',
-            deviceName: 'macOS',
-            automationName: 'Mac2',
-            bundleId: 'my.bundleId',
+            'appium:options': {
+                deviceName: 'macOS',
+                automationName: 'Mac2',
+                bundleId: 'my.bundleId',
+            },
             //
             // capabilities below should be used when electron framework is used to build macos app
             //
@@ -584,7 +604,7 @@ udid: '<Device udid>';
 ## Test executing
 
 1. Make sure application is built (applies for iOS, tvOS, Android, AndroidTV, macOS) or hosted to server (applies for Web).
-2. Run in cli `PLATFORM=<platform> ENGINE=<engine> npx wdio wdio.conf.js`. `<platform>` must be replaced by `ios`, `tvos`, `android`, `androidtv`, `macos` or `web`. `ENGINE` environment variable is only needed for macOS and `<engine>` must be replaced by `macos` or `electron` depending on what framework macOS application is built.
+2. Run in cli `APPIUM_HOME=./ PLATFORM=<platform> ENGINE=<engine> npx wdio wdio.conf.js`. `<platform>` must be replaced by `ios`, `tvos`, `android`, `androidtv`, `macos` or `web`. `ENGINE` environment variable is only needed for macOS and `<engine>` must be replaced by `macos` or `electron` depending on what framework macOS application is built. `APPIUM_HOME=./` is only needed for platforms which use Appium Service and it is not necessary when project is not monorepo.
 
 ## Prerequisites executing tests on macOS app
 
