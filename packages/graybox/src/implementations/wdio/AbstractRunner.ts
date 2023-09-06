@@ -179,6 +179,48 @@ abstract class AbstractRunner {
         //eslint-disable-next-line
         console.log(`THEN: ${message}`);
     };
+
+    expectToBeFocusedById = async (selector: string) => {
+        const element = await this.getElementById(selector);
+        if (element) {
+            await expect(element).toHaveAttribute('focused', 'true');
+        }
+    };
+
+    expectToBeFocusedByText = async (selector: string) => {
+        const element = await this.getElementByText(selector);
+        if (element) {
+            await expect(element).toHaveAttribute('focused', 'true');
+        }
+    };
+
+    waitForFocusedById = async (selector: string) => {
+        const element = await this.getElementById(selector);
+        if (element) {
+            await element.waitUntil(
+                async function () {
+                    return (await element.getAttribute('focused')) === 'true';
+                },
+                {
+                    timeout: 60000,
+                }
+            );
+        }
+    };
+
+    waitForFocusedByText = async (selector: string) => {
+        const element = await this.getElementByText(selector);
+        if (element) {
+            await element.waitUntil(
+                async function () {
+                    return (await element.getAttribute('focused')) === 'true';
+                },
+                {
+                    timeout: 60000,
+                }
+            );
+        }
+    };
 }
 
 export default AbstractRunner;
