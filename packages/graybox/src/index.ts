@@ -5,6 +5,7 @@ import androidtv from './implementations/wdio/AndroidtvRunner';
 import macos from './implementations/wdio/MacosRunner';
 import macosElectron from './implementations/wdio/MacosElectronRunner';
 import web from './implementations/wdio/WebRunner';
+import webos from './implementations/wdio/WebosRunner';
 
 const selectRunner = (): any => {
     if (process.env.PLATFORM === 'ios') {
@@ -23,6 +24,8 @@ const selectRunner = (): any => {
         }
     } else if (process.env.PLATFORM === 'web') {
         return web;
+    } else if (process.env.PLATFORM === 'webos') {
+        return webos;
     }
 };
 

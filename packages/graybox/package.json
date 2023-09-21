@@ -1,6 +1,6 @@
 {
     "name": "@flexn/graybox",
-    "version": "1.0.0",
+    "version": "1.0.0-feat.4",
     "description": "Flexn Graybox Tester",
     "main": "lib/index.js",
     "scripts": {
@@ -40,6 +40,8 @@
         "appium-mac2-driver": "1.7.2",
         "appium-uiautomator2-driver": "2.29.5",
         "appium-xcuitest-driver": "4.32.11",
+        "appium-tizen-tv-driver": "0.8.1",
+        "appium-lg-webos-driver": "0.0.6",
         "chromedriver": "102.0.0",
         "wdio-chromedriver-service": "7.2.2",
         "wdio-image-comparison-service": "5.0.3",

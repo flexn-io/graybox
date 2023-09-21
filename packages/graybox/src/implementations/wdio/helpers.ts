@@ -13,4 +13,11 @@ const pressButtonIos = async (n: number, name: string) => {
     }
 };
 
-export { pressButtonAndroid, pressButtonIos };
+const pressButtonWebos = async (n: number, key: string) => {
+    for (let i = 0; i < n; i++) {
+        await driver.executeScript('webos: pressKey', [{ key }]);
+        await browser.pause(500);
+    }
+};
+
+export { pressButtonAndroid, pressButtonIos, pressButtonWebos };
