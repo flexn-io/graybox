@@ -1,0 +1,36 @@
+{
+    "platforms": {},
+    "$schema": "../../.rnv/schema/rnv.template.json",
+    "plugins": {},
+    "extendsTemplate": "@rnv/template-starter/renative.json",
+    "projectName": "app-harness",
+    "projectVersion": "0.1.0",
+    "workspaceID": "rnv",
+    "defaults": {
+        "supportedPlatforms": [
+            "ios",
+            "android",
+            "androidtv",
+            "firetv",
+            "androidwear",
+            "web",
+            "webtv",
+            "tizen",
+            "tvos",
+            "webos",
+            "macos",
+            "windows",
+            "tizenwatch",
+            "tizenmobile",
+            "kaios",
+            "chromecast"
+        ]
+    },
+    "templates": {
+        "@rnv/template-starter": {
+            "version": "1.0.0-rc.0"
+        }
+    },
+    "currentTemplate": "@rnv/template-starter",
+    "isMonorepo": true
+}
