@@ -1,7 +1,9 @@
 {
-    "platforms": {},
     "$schema": "../../.rnv/schema/rnv.template.json",
-    "plugins": {},
+    "platforms": {},
+    "plugins": {
+        "@react-native-community/cli": "^11.3.8"
+    },
     "extendsTemplate": "@rnv/template-starter/renative.json",
     "projectName": "app-harness",
     "projectVersion": "0.1.0",
@@ -26,9 +28,10 @@
             "chromecast"
         ]
     },
+    "engines": {},
     "templates": {
         "@rnv/template-starter": {
-            "version": "1.0.0-rc.0"
+            "version": "1.0.0-rc.1"
         }
     },
     "currentTemplate": "@rnv/template-starter",
