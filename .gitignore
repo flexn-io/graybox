@@ -13,3 +13,5 @@ tsconfig.tsbuildinfo
 !**/overrides/**/build
 
 **/renative.local.json
+
+.DS_Store
