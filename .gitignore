@@ -15,3 +15,5 @@ tsconfig.tsbuildinfo
 **/renative.local.json
 
 .DS_Store
+
+**/vendor
