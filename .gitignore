@@ -11,3 +11,9 @@ tsconfig.tsbuildinfo
 
 !**/overrides/**/lib
 !**/overrides/**/build
+
+**/renative.local.json
+
+.DS_Store
+
+**/vendor
