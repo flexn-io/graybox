@@ -5,7 +5,7 @@
         "rootDir": "./src",
         "types": [
             "node",
-            "@wdio/globals/types",
+            "webdriverio/async",
             "@wdio/mocha-framework",
             "wdio-image-comparison-service",
             "wdio-native-app-compare-service"
