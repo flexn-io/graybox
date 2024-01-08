@@ -5,11 +5,11 @@ class MacosRunner extends AbstractRunner {
         // do nothing
     };
 
-    getElementById = (selector: string) => {
+    getElementById = (selector: string): Promise<WebdriverIO.Element> => {
         return $(`~${selector}`);
     };
 
-    getElementByText = (selector: string) => {
+    getElementByText = (selector: string): Promise<WebdriverIO.Element> => {
         return $(`[name="${selector}"]`);
     };
 
